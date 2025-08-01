@@ -1,0 +1,39 @@
+.settings-section {
+  background-color: #fefefe;
+  border: 1px solid #cbd5e1; /* light border */
+  padding: 0 12px; /* no vertical padding to control height */
+  border-radius: 9999px; /* pill shape */
+  min-width: 120px;
+  height: 32px;              /* match exchange rate height */
+  line-height: 32px;         /* vertically center text */
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e293b; /* dark slate */
+  box-shadow: 0 1px 3px rgba(30, 41, 59, 0.15);
+  user-select: none;
+
+  display: inline-flex;      /* inline-flex to behave like badge */
+  align-items: center;       /* vertical center */
+  justify-content: center;
+}
+
+.loading, .error {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.loading {
+  font-style: italic;
+  color: #64748b; /* muted gray */
+}
+
+.error {
+  color: #dc2626; /* red */
+}
+
+.currency-display strong {
+  margin-left: 4px;
+  color: #334155; /* darker slate */
+}

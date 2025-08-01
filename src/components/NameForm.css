@@ -1,0 +1,239 @@
+/* General container */
+.name-form-container {
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Header (form card) */
+.name-form-header {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+/* Title */
+.name-form-container h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Description */
+.info-text {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+/* Input + Button row */
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* Input field */
+.name-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.name-input:disabled {
+  background-color: #f9fafb;
+}
+
+/* Submit button */
+.submit-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+/* Spinning icon */
+.icon-spin {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Result popup */
+.result-popup {
+  background-color: #f3f4f6;
+  border: 1px solid #94a3b8;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Reset button */
+.reset-btn {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.reset-btn:hover {
+  text-decoration: underline;
+}
+
+/* Clock button */
+.history-toggle {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: #4f46e5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.history-toggle:hover {
+  background-color: #eef2ff;
+}
+
+/* Dropdown list */
+.history-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-top: 0.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  max-height: 160px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0.5rem 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.history-item {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  color: #1e293b;
+  cursor: default;
+}
+
+.history-item:hover,
+.history-item:focus {
+  background-color: #e0e7ff;
+  outline: none;
+}
+
+/* Error message */
+.error-text {
+  color: #dc2626;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Accessibility helper */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+}
+
+/* 🔁 Responsive layout for mobile */
+@media (max-width: 480px) {
+  .name-form-container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .name-form-header {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .name-input {
+    width: 100%;
+  }
+
+  .result-popup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}

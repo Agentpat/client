@@ -92,3 +92,9 @@ button {
 .error-msg {
   color: red;
 }
+
+@media (max-width: 600px) {
+  .posts-list {
+    grid-template-columns: 1fr; /* one column */
+  }
+}

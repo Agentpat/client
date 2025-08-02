@@ -1,7 +1,9 @@
 // src/components/Settings.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Settings.css'; // Ensure this file exists
+import './Settings.css';
+
+const API_BASE_URL = 'https://natural-trust-production.up.railway.app';
 
 const Settings = () => {
   const [currency, setCurrency] = useState('');
@@ -10,7 +12,7 @@ const Settings = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/settings')
+      .get(`${API_BASE_URL}/api/settings`)
       .then(res => {
         setCurrency(res.data.currency);
         setError('');
@@ -31,7 +33,7 @@ const Settings = () => {
         <p className="error">{error}</p>
       ) : (
         <p className="currency-display">
-           <strong>{currency}</strong>
+          <strong>{currency}</strong>
         </p>
       )}
     </section>

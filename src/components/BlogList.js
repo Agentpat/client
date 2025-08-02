@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./BlogList.css";
 
+const API_BASE_URL = "https://natural-trust-production.up.railway.app";
+
 const BlogList = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +20,7 @@ const BlogList = () => {
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/posts");
+      const res = await axios.get(`${API_BASE_URL}/api/posts`);
       setPosts(res.data);
       setError("");
     } catch (err) {
@@ -39,7 +41,7 @@ const BlogList = () => {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:5000/api/posts", {
+      const res = await axios.post(`${API_BASE_URL}/api/posts`, {
         title: newTitle,
         content: newContent,
       });
@@ -73,7 +75,7 @@ const BlogList = () => {
     }
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/posts/${editingPostId}`,
+        `${API_BASE_URL}/api/posts/${editingPostId}`,
         { title: editTitle, content: editContent }
       );
       setPosts(posts.map((p) => (p._id === editingPostId ? res.data : p)));
@@ -87,7 +89,7 @@ const BlogList = () => {
   const deletePost = async (id) => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/posts/${id}`);
       setPosts(posts.filter((p) => p._id !== id));
     } catch {
       alert("Failed to delete post");
